@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { UserPage } from '@/app/components/userPage'
 import { PopUp } from './components/popUp';
 import { LoginForm } from "./components/loginForm";
-import { redirect } from 'next/navigation';
+
 
 
 export default function Home() {
@@ -27,12 +27,14 @@ export default function Home() {
     if (error) {
 
       setInvalidPassword(true);
-      setInvalidPasswordMessage(error.message)
+      setInvalidPasswordMessage(error.message); 
 
     } else {
-      router.refresh();
+      
+      router.refresh(); 
       setEmail(``);
       setPassword(``);
+      window.location.reload(); 
     };
   };
 
@@ -40,8 +42,6 @@ export default function Home() {
 
     setInvalidPassword(false);
     setInvalidPasswordMessage(null);
-    redirect(`${location.origin}/`);
-
   };
 
   // in the background check if there is a login on the broswer

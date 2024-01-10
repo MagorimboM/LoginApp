@@ -8,7 +8,6 @@ import { supabase } from '@/database/supaBase'
 import { useState, useEffect } from 'react';
 import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { PopUp } from "./popUp";
 
 function UserPage(props: any) {
     const router = useRouter();
@@ -49,24 +48,25 @@ function UserPage(props: any) {
     if (signedOut == true) {
         redirect(`${location.origin}/`);
 
-    };
-    return (<main className='flex flex-row h-screen w-screen items-center justify-center scroll overflow-y-scroll bg-gray-700 '>
-        <div className='fixed left-0 h-full bg-gray-800 flex flex-col gap-60 p-2 items-center w-20 p-2 scroll overflow-y-scroll'>
-            <div className=' flex mt-10 p-4 bg-gray-50 hover:bg-gray-400 text-black transition-color cursor-pointer items-center rounded-3xl'>
-                <button title='showUserDetails' ><RiAccountBoxFill /></button>
-            </div>
-            <div className='flex flex-col gap-4'>
-                <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items-center rounded-3xl'>
-                    <button title='logOut' onClick={() => (LogOutUser())} ><CiLogout /></button>
+    } else {
+        return (<main className='flex flex-row h-screen w-screen items-center justify-center scroll overflow-y-scroll bg-gray-700 '>
+            <div className='fixed left-0 h-full bg-gray-800 flex flex-col gap-60 p-2 items-center w-20 p-2 scroll overflow-y-scroll'>
+                <div className=' flex mt-10 p-4 bg-gray-50 hover:bg-gray-400 text-black transition-color cursor-pointer items-center rounded-3xl'>
+                    <button title='showUserDetails' ><RiAccountBoxFill /></button>
                 </div>
-                <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items center rounded-3xl'>
-                    <button title='showEditBox'><CiEdit /></button>
+                <div className='flex flex-col gap-4'>
+                    <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items-center rounded-3xl'>
+                        <button title='logOut' onClick={() => (LogOutUser())} ><CiLogout /></button>
+                    </div>
+                    <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items center rounded-3xl'>
+                        <button title='showEditBox'><CiEdit /></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div><DisplayUserInfo user={props.user} /></div>
+            <div><DisplayUserInfo user={props.user} /></div>
 
-    </main>);
+        </main>);
+    }; 
 };
 
 export { UserPage }; 

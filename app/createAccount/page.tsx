@@ -70,7 +70,7 @@ function CreateAccount() {
                         <input className=' bg-gray-800 text-sm rounded-3xl border w-full p-2' placeholder='Enter your last name' value={lastname} required onChange={(e) => setlastName(e.target.value)} type='lastname' name='lastname' />
                     </div>
                     <div className='mt-4'>
-                        <span className='text-xs'>Password*</span>
+                        <span className='text-xs'>Password: 6 characters max*</span>
                         <input className=' bg-gray-800 text-sm rounded-3xl border w-full p-2' placeholder='Enter password' required type='password' value={password} onChange={(e) => setPassword(e.target.value)} maxLength={6} name='password' />
                     </div>
                     <div className='mt-8 flex justify-center items-center text-xs rounded-3xl bg-purple-600 hover:bg-purple-800'>
