@@ -58,9 +58,6 @@ function UserPage(props: any) {
                     <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items-center rounded-3xl'>
                         <button title='logOut' onClick={() => (LogOutUser())} ><CiLogout /></button>
                     </div>
-                    <div className='flex text-white bg-purple-600 hover:bg-purple-800 transition-color p-4 cursor-pointer items center rounded-3xl'>
-                        <button title='showEditBox'><CiEdit /></button>
-                    </div>
                 </div>
             </div>
             <div><DisplayUserInfo user={props.user} /></div>
